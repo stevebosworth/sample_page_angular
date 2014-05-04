@@ -1,0 +1,95 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body ng-app="samplePageApp">
+  <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <div class="container" ng-controller="MainCtrl">
+    <div class="content-container">
+    <div class="survey-form-container">
+      <header class="view-header-wrapper">
+        <h1 class="main-heading">
+          Industry Analyzer
+          <span class="instructions">Select Up to 4 industries to compare</span>
+        </h1>
+        <p class="sub-heading">(you can change these at anytime)</p>
+      </header>
+
+      <form novalidate class="form-survey">
+        <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+          <li ng-repeat="item in surveyItems" class="checkbox-wrapper">
+            <input type="checkbox" name="{{item.name}}" ng-model="item.selected" id="{{item.name}}" ng-checked="{{item.selected}}" ng-change="validate($index)">
+            <label for="{{item.name}}">
+              <span class="checkbox-bg"></span>
+              <span class="checkbox-icon icon-{{item.icon}} {{item.iconType}}-icon"></span>
+              <span class="checkbox-title">{{item.title}}</span>
+            </label>
+          </li>
+        </ul>
+        <button type="button" class="btn-submit">Submit Choices</button>
+      </form>
+    </div>;
+
+    <div class="survey-form-summary-container">
+      <header class="view-header-wrapper">
+        <h1 class="main-heading">
+          Closing Title
+        </h1>
+      </header>
+      <div class="survey-form-summary-wrapper">
+        <p class="survey-form-summary-content">
+          Thanks for your choices. You chose
+          <span ng-repeat="item in surveyItems | filter:{selected : true}" class="selected-options">
+              <span ng-show="!$last" class="option">{{item.title}}</span>
+              <span ng-show="$first || $middle"> and</span>
+              <span ng-show="$last" class="option">{{item.title}}.</span>
+          </span>
+        </p>
+      </div>
+
+      <div class="subscribe-form-wrapper">
+        <p>
+          Want more information? Enter your email address below.
+        </p>
+        <form action="POST" class="subscribe-form">
+          <input type="email" placeholder="Email Address" required>
+          <button type="button" class="btn-subscribe-submit btn-submit">
+            <span class="mail-icon"><img src="img/icons/envelope.png" alt="envelope"></span>
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div class="return-to-survey-wrapper">
+        <button type="button" class="btn-return-to-survey">
+          <span class="return-icon"><img src="img/icons/return-arrow.png" alt="return"></span>
+          Change selected options
+        </button>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <!--[if lt IE 9]>
+  <script src="bower_components/es5-shim/es5-shim.js"></script>
+  <script src="bower_components/json3/lib/json3.min.js"></script>
+  <![endif]-->
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
