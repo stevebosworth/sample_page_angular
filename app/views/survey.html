@@ -7,17 +7,16 @@
     <p class="sub-heading">(you can change these at anytime)</p>
   </header>
 
-  <form novalidate class="form-survey">
+  <form novalidate ng-submit="ajaxSubmit()" class="form-survey">
     <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
       <li ng-repeat="item in surveyItems" class="checkbox-wrapper">
-        <input type="checkbox" name="{{item.name}}" ng-model="item.selected" id="{{item.name}}" ng-checked="{{item.selected}}" ng-change="update($index)">
+        <input type="checkbox" name="{{item.name}}" ng-model="item.selected" id="{{item.name}}" ng-checked="{{item.selected}}" ng-change="onUpdate($index)">
         <label for="{{item.name}}">
-          <span class="checkbox-bg"></span>
           <span class="checkbox-icon icon-{{item.icon}} {{item.iconType}}-icon"></span>
           <span class="checkbox-title">{{item.title}}</span>
         </label>
       </li>
     </ul>
-    <button type="button" class="btn-submit" ng-click="navigate('/summary')">Submit Choices</button>
+    <button type="submit" class="btn-submit">Submit Choices</button>
   </form>
 </div>

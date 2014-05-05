@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name" : "clothing-apparel",
+    "title": "Clothing & Apparel",
+    "icon": "shirt",
+    "iconType" : "tall",
+    "selected" : false
+  },
+  {
+    "id": 2,
+    "name" : "jewlery-accessories",
+    "title": "Jewelry & Accessories",
+    "icon": "diamond",
+    "iconType" : "tall",
+    "selected" : false
+  },
+  {
+    "id": 3,
+    "name" : "health-beauty",
+    "title": "Health & Beauty",
+    "icon": "bottle",
+    "iconType" : "tall",
+    "selected" : false
+  },
+  {
+    "id": 4,
+    "name" : "bags-shoes",
+    "title": "Bags & Shoes",
+    "icon": "bag",
+    "iconType" : "tall",
+    "selected" : false
+  },
+  {
+    "id": 5,
+    "name" : "food-drink",
+    "title": "Food & Drink",
+    "icon": "glass",
+    "iconType" : "tall",
+    "selected" : false
+  },
+  {
+    "id": 6,
+    "name" : "home-garden",
+    "title": "Home & Garden",
+    "icon": "couch",
+    "iconType" : "wide",
+    "selected" : false
+  },
+  {
+    "id": 7,
+    "name" : "electronics",
+    "title": "Electronics",
+    "icon": "battery",
+    "iconType" : "wide",
+    "selected" : false
+  },
+  {
+    "id": 8,
+    "name" : "random",
+    "title": "Random",
+    "icon": "random",
+    "iconType" : "tall",
+    "selected" : false
+  }
+]
