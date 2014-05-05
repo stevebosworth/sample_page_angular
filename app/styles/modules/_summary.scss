@@ -17,6 +17,7 @@
         font-size: 22px;
         color: $white;
         font-family: $font-family-open-sans;
+        line-height: 2;
     }
 
     .subscribe-form{
@@ -53,6 +54,12 @@
             padding: 0px 8px;
             color: $white;
         }
+    }
+
+    .error-message {
+      color: white;
+      font-size: 22px;
+      font-family: $font-family-open-sans;
     }
 
     .btn-return-to-survey{
