@@ -14,7 +14,9 @@ var paths = {
     dest: 'dist/styles/'
   },
   fonts: ['app/fonts/**/*'],
-  templates: ['app/*.html']
+  templates: ['app/*.html'],
+  views: ['app/views/**/*.html'],
+  data: ['app/data/**/*']
 };
 
 gulp.task('scripts', function() {
@@ -52,6 +54,16 @@ gulp.task('sass', function () {
 gulp.task('templates', function(){
   return gulp.src(paths.templates)
     .pipe(gulp.dest('dist'));
+});
+
+gulp.task('views', function(){
+  return gulp.src(paths.views)
+    .pipe(gulp.dest('dist/views'));
+});
+
+gulp.task('data', function(){
+  return gulp.src(paths.data)
+    .pipe(gulp.dest('dist/data'));
 });
 
 // Copy all static images
@@ -95,17 +107,18 @@ gulp.task('watch', ['connect', 'serve'], function () {
   gulp.watch(paths.scripts, ['scripts']);
   gulp.watch(paths.images, ['images']);
   gulp.watch(paths.templates, ['templates']);
+  gulp.watch(paths.views, ['views']);
   gulp.watch([
     'app/*.html',
     'app/scripts/**/*.js',
-    'app/images/**/*'
+    'app/images/**/*',
+    'app/views/**/*.html'
   ]).on('change', function (file) {
-    console.log('live-reloadeeedd!');
     server.changed(file.path);
   });
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['scripts', 'images', 'fonts', 'sass', 'templates', 'watch']);
-gulp.task('build', ['scripts', 'images', 'fonts', 'templates', 'sass']);
+gulp.task('default', ['scripts', 'images', 'fonts', 'sass', 'templates', 'views', 'watch']);
+gulp.task('build', ['scripts', 'images', 'fonts', 'templates', 'views', 'data', 'sass']);
 

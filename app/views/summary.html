@@ -1,0 +1,41 @@
+<div class="survey-form-summary-container">
+  <header class="view-header-wrapper">
+    <h1 class="main-heading">
+      Closing Title
+    </h1>
+  </header>
+  <div class="survey-form-summary-wrapper">
+    <p class="survey-form-summary-content">
+      Thanks for your choices. You chose
+      <span ng-repeat="item in surveyItems | filter:{selected : true}" class="selected-options">
+          <span ng-show="!$last" class="option">{{item.title}}</span>
+          <span ng-show="$first || $middle"> and</span>
+          <span ng-show="$last" class="option">{{item.title}}.</span>
+      </span>
+    </p>
+  </div>
+
+  <div class="subscribe-form-wrapper">
+    <p>
+      Want more information? Enter your email address below.
+    </p>
+    <form novalidate name="subscribe" class="subscribe-form">
+      <input type="email" name="email" ng-model="user.email" placeholder="Email Address" required>
+      <button type="button" class="btn-subscribe-submit btn-submit" ng-disabled="subscribe.$invalid" ng-click="subscribeToEmail()">
+        <span class="mail-icon"><img src="img/icons/envelope.png" alt="envelope"></span>
+        Submit
+      </button>
+      <div ng-show="subscribe.email.$dirty && subscribe.email.$invalid">
+        <span class="error-message" ng-show="subscribe.email.$error.required">Tell us your email.</span>
+        <span class="error-message" ng-show="subscribe.email.$error.email">Please enter a valid email.</span>
+      </div>
+    </form>
+  </div>
+
+  <div class="return-to-survey-wrapper">
+    <button type="button" class="btn-return-to-survey" ng-click="navigate('/')">
+      <span class="return-icon"><img src="img/icons/return-arrow.png" alt="return"></span>
+      Change selected options
+    </button>
+  </div>
+</div>
