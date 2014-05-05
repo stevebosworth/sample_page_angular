@@ -1,5 +1,10 @@
 'use strict';
 
+
+/**
+ *  CONFIG & ROUTING FOR APP
+ */
+
 angular
   .module('samplePageApp', [
     'ngCookies',

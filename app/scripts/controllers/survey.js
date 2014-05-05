@@ -5,11 +5,13 @@ var _ = require('lodash');
 angular.module('samplePageApp')
   .controller('SurveyCtrl', function ($rootScope, $scope, $location, surveyFactory) {
 
+    //keeps track of selected items in the survey form
     var selectedItems = [];
 
+    //data to be sent to the backend
     var formData = [];
 
-    // preserve the state of the form if you are returning from
+    // preserves the state of the form if you are returning from
     // the summary page.
     _.each($rootScope.surveyItems, function(item, index){
       if(item.selected === true){
@@ -17,8 +19,18 @@ angular.module('samplePageApp')
       }
     });
 
+    /**
+     *  Triggered on survey form update.  Validates the form and limits inputs
+     *  to 4 total.
+     *
+     *  @method onUpdate
+     *
+     *  @param  {int} index of the active checkbox
+     *
+     *  @return {undefined}
+     */
 
-    $scope.update = function (index) {
+    $scope.onUpdate = function (index) {
 
       //remove item selectedItems if it's a previously selected value being unchecked
       selectedItems = _.pull(selectedItems, index);
@@ -39,6 +51,14 @@ angular.module('samplePageApp')
         selectedItems.push(index);
       }
     };
+
+    /**
+     *  Validate and submit the survey form via ajax using the surveyFactory.
+     *
+     *  @method ajaxSubmit
+     *
+     *  @return {undefined}
+     */
 
     $scope.ajaxSubmit =  function() {
 
@@ -65,12 +85,23 @@ angular.module('samplePageApp')
             console.log('Subscribe Error!!');
           });
       } else {
+        //TODO: make this a better user experience
+
         alert('You must select something to proceed');
       }
     };
 
-    //want to move this into a service
-    //
+
+    /**
+     *  Navigate to specified view
+     *
+     *  @method navigate
+     *
+     *  @param  {string} path to view to load
+     *
+     *  @return {undefined}
+     */
+
     $scope.navigate = function(path) {
       $location.path( path );
     };

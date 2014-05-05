@@ -3,7 +3,13 @@
 angular.module('samplePageApp')
   .controller('MainCtrl', function ($rootScope, $scope, $location, surveyFactory) {
 
-    //set survey items on page init
+    /**
+     *  Initialize page level stuff.  Mainly setting $rootScope to contain the form items
+     *
+     *  @method init
+     *
+     *  @return {undefined}
+     */
 
     function init (){
       surveyFactory.getSurveyItems().success(function(data){
