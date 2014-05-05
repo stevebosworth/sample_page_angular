@@ -16,7 +16,6 @@ The goal of this project is to setup a boilerplate for a fully responsive single
 - [Gulp](http://gulpjs.com/)
 - [Foundation (css only)](http://foundation.zurb.com/)
 - [AngularJS](https://angularjs.org/)
-- 
 
 ####Installation Instructions
 
