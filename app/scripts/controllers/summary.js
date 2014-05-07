@@ -16,7 +16,7 @@ angular.module('samplePageApp')
      */
 
     $scope.subscribeToEmail = function(){
-      surveyFactory.subscriibe($scope.user).success(function(){
+      surveyFactory.subscribe($scope.user).success(function(){
           console.log('Subscribed!');
         }).error(function() {
           console.log('Subscribe Error!');
