@@ -119,6 +119,6 @@ gulp.task('watch', ['connect', 'serve'], function () {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['scripts', 'images', 'fonts', 'sass', 'templates', 'views', 'watch']);
+gulp.task('default', ['scripts', 'images', 'fonts', 'sass', 'templates', 'views', 'data', 'watch']);
 gulp.task('build', ['scripts', 'images', 'fonts', 'templates', 'views', 'data', 'sass']);
 
